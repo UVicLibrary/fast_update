@@ -16,7 +16,7 @@ Run `rails db:migrate` after copying the files over.
 
 ## Configuration
 
-There are 2 files whose contents need to be copy/pasted into your corresponding app files:
+There are 3 files whose contents need to be copy/pasted into your corresponding app files:
 
 ### config/routes.rb
 
