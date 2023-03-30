@@ -27,7 +27,19 @@ class FastUpdate::InstallGenerator < Rails::Generators::Base
     end
   end
 
-  def copy_config_file
+  def copy_files
     copy_file("config/fast_update.yml", "config/fast_update.yml") unless File.file?("config/fast_update.yml")
+    copy_file("views/_replace_or_delete_fast_uris.html.erb","app/views/hyrax/dashboard/sidebar/_replace_or_delete_fast_uris.html.erb") unless File.file?("app/views/hyrax/dashboard/sidebar/_replace_or_delete_fast_uris.html.erb")
+  end
+
+  def inject_dashboard_link
+    controller_path = "app/controllers/hyrax/dashboard_controller.rb"
+    unless File.file?(controller_path)
+      copy_file("controllers/dashboard_controller.rb", controller_path)
+    end
+    partials_line = File.read(controller_path).match(/self.sidebar_partials = {.+}\r\n/)[0]
+    inject_into_file controller_path, after: partials_line do
+      "    self.sidebar_partials[:tasks] << 'hyrax/dashboard/sidebar/replace_or_delete_fast_uris'\r\n"
+    end
   end
 end
