@@ -57,7 +57,7 @@ class FastUpdateFieldManager extends ControlledVocabulary {
         this._attachEvents();
         this._addCallbacks();
         this._formatStringsAndLabels();
-        this.addAutocompleteToEditor($('#new-label'));
+        this.addAutocompleteToEditor($('#new_labels_and_uris_0'));
     }
 
     _attachEvents() {
@@ -215,7 +215,6 @@ class FastUpdateFormManager {
         this.autocompleteSelectors = ['#old-label','#fast_update_change_collection_id'];
         this.submitButton = $('#fast-update-submit-button');
         this.oldURIField = $('#fast_update_change_old_uri');
-        this.oldLabelField =
         this.init();
     }
 
