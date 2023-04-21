@@ -1,4 +1,4 @@
-# FAST Update
+# FAST Updater
 *(Mostly) Automatic FAST reconciliation for Hyrax-based repositories*
 
 The University of Victoria Libraries uses FAST Update in production as part of [Vault](https://vault.library.uvic.ca/), its Digital Asset Management System.
